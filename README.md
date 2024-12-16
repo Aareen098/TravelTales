@@ -4,8 +4,11 @@ A dynamic and responsive tour and travel website built using HTML, CSS, and Java
 Key Features:
 
 Responsive Design: Fully optimized for all devices.
+
 Interactive UI: Includes sliders, modals, and expandable menus.
+
 Backend Integration: Handles bookings and data management using PHP.
+
 Rich Content: Lists destinations, restaurants, and hotels with images and details.
 Technologies Used:
 
