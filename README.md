@@ -1,16 +1,7 @@
-# TravelTales
-A dynamic and responsive tour and travel website built using HTML, CSS, and JavaScript for the frontend, with PHP powering the backend. The platform offers features like hotel and restaurant listings, booking functionality, and interactive UI components. Perfect for showcasing travel destinations and enhancing user engagement.
-
-Key Features:
-
-Responsive Design: Fully optimized for all devices.
-
-Interactive UI: Includes sliders, modals, and expandable menus.
-
-Backend Integration: Handles bookings and data management using PHP.
-
-Rich Content: Lists destinations, restaurants, and hotels with images and details.
-Technologies Used:
-
-Frontend: HTML, CSS, JavaScript
-Backend: PHP
+<h2 align="center">TRAVEL TALES</h2>
+<div align="center">
+<p>A travel website project created using HTML, CSS and JavaScript.</p>
+<a href="https://mohdrahil101.github.io/firstflight-travels/" target="_blank"><strong>➥ Live Demo</strong></a>
+</div> <br/><br/>
+<b>Screenshots:</b> <br/><br/>
+<img src="https://github.com/mohdrahil101/firstflight-travels/blob/main/readme%20images/readme-image.jpg"></img>

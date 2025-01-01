@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tales Book Your Hotel</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+    <style>
+        /* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: #333(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 50px;
+    padding-left: 6px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+/* Navigation Styles */
+nav {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 100px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+.container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #102C57;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #102C57;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 95%;
+        }
+
+        .submit-button-container {
+            
+            text-align: center; /* Center the button */
+        }
+
+        input[type="submit"] {
+            background-color: #102C57;
+            color: white;
+            border: none;
+            padding: 12px 0;
+            margin-top: 20px;
+            width: 40%; /* Adjust width as needed */
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff7f50;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 5px;
+            color: #102C57;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+/* Footer */
+.footer {
+    background-color: #102C57;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer .foot {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer .footlinks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer .footlinks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footlinks ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footlinks ul li a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer .footlinks ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social a {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+    color: #ff7f50;
+}
+
+.end {
+    margin-top: 30px;
+}
+
+.end p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.end p b {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    nav {
+        padding: 15px 50px;
+    }
+
+    .container, .contact, .about {
+        padding: 80px 30px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .container-box, .box, .col-content {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 30px;
+    }
+
+    .container, .contact, .about {
+        padding: 60px 20px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .container-box, .box, .col-content {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about .main img {
+        margin: 0 auto 20px;
+    }
+
+    .abt-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .contact-form {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+    }
+
+    .container, .contact, .about {
+        padding: 40px 15px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .container-box h4,
+    .dest-content h4,
+    .contact-form p,
+    .abt-text p {
+        font-size: 14px;
+    }
+
+    .container-box p,
+    .dest-content ul li,
+    .col-content p,
+    .col-content h5,
+    .abt-text p {
+        font-size: 12px;
+    }
+}
+
+
+/* Additional Styles for Mobile Responsiveness */
+@media (max-width: 360px) {
+.navbar {
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-content {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footlinks {
+    margin-bottom: 20px;
+}
+
+.end {
+    font-size: 14px;
+}
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./index.html#locations">Locations</a></li>
+            <li><a href="./index.html#package">Packages</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+          &#9776; <!-- Unicode character for the hamburger icon -->
+      </div>
+    </nav>
+    <div class="container">
+        <h1>Book Your Stay</h1>
+        <p>Complete the form below to book your preferred hotel.</p>
+    
+    <main>
+        <form action="hotelbook.php" method="POST">
+            <label for="hotel-name">Hotel Name</label>
+            <input type="hotelname" id="hotel-name" name="hotelname" readonly>
+
+            <label for="check-in">Full Name</label>
+            <input type="text" id="fullname" name="name" required>
+                
+            <label for="check-in">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="check-in">Phone.No</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="check-in">Check-in Date</label>
+            <input type="date" id="check-in" name="checkin" required>
+
+            <label for="check-out">Check-out Date</label>
+            <input type="date" id="check-out" name="checkout" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" required>
+
+            <label for="room-type">Room Type</label>
+            <select id="room-type" name="roomtype" required>
+                <option value="single">Single Room</option>
+                <option value="double">Double Room</option>
+                <option value="suite">Suite</option>
+            </select>
+            <input type="submit" name="submit" value="Book Now" class="submitbtn">
+
+        </form>
+    </main>
+    </div>
+
+    <!-- Footer -->
+
+<footer class="footer">
+    <div class="foot">
+        <div class="footlinks">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./book.html">Book Now!</a></li>
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#locations">Locations</a></li>
+                <li><a href="./index.html#package">Packages</a></li>
+                <li><a href="./about.html#about us">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="./contact.html">Contact Form</a></li>
+                <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                <li><a href="mob:+919646348062">+91 9646348062</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+    </div>
+</footer>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const hotelName = urlParams.get('hotel'); // Retrieves 'hotel' parameter from URL
+    
+    if (hotelName) {
+        document.getElementById('hotel-name').value = decodeURIComponent(hotelName); // Set the hotel name as input value
+    } else {
+        document.getElementById('hotel-name').value = "Hotel not found";
+    }
+});
+
+
+        // Responsive Navbar
+        document.getElementById("menu-icon").addEventListener("click", function() {
+            document.querySelector(".navbar").classList.toggle("active");
+        });
+</script>
+</body>
+</html>
