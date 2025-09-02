@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tales</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+/* Navigation Styles */
+nav {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 100px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+h1, h2 {
+            margin-top: 100px;
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #102C57;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #102C57;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .book-btn {
+            background-color: #102C57;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .book-btn:hover {
+            background-color: #ff7f50;
+        }
+      
+
+        /* Footer */
+.footer {
+    background-color: #102C57;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer .foot {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer .footlinks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer .footlinks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footlinks ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footlinks ul li a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer .footlinks ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social a {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+    color: #ff7f50;
+}
+
+.end {
+    margin-top: 30px;
+}
+
+.end p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.end p b {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    nav {
+        padding: 15px 50px;
+    }
+
+    .container, .contact, .about {
+        padding: 80px 30px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .container-box, .box, .col-content {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 30px;
+    }
+
+    .container, .contact, .about {
+        padding: 60px 20px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .container-box, .box, .col-content {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about .main img {
+        margin: 0 auto 20px;
+    }
+
+    .abt-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .contact-form {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+    }
+
+    .container, .contact, .about {
+        padding: 40px 15px;
+    }
+
+    .container .text h2,
+    .contact-form h1,
+    .abt-text h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .container-box h4,
+    .dest-content h4,
+    .contact-form p,
+    .abt-text p {
+        font-size: 14px;
+    }
+
+    .container-box p,
+    .dest-content ul li,
+    .col-content p,
+    .col-content h5,
+    .abt-text p {
+        font-size: 12px;
+    }
+}
+
+
+/* Additional Styles for Mobile Responsiveness */
+@media (max-width: 360px) {
+.navbar {
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-content {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footlinks {
+    margin-bottom: 20px;
+}
+
+.end {
+    font-size: 14px;
+}
+}
+    </style>
+   
+</head>
+<body>
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./index.html#locations">Locations</a></li>
+            <li><a href="./index.html#package">Packages</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+          &#9776; <!-- Unicode character for the hamburger icon -->
+      </div>
+    </nav>
+    <h1>Bus and Train Services from Delhi</h1>
+
+    <div class="container">
+       <!-- Buses Section -->
+<div class="section">
+    <h2>Buses</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Service Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Delhi to Shimla</td>
+                <td>7:00 AM, 12:00 PM, 6:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Shimla" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Amritsar</td>
+                <td>6:30 AM, 11:30 AM, 8:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Amritsar" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Dehradun</td>
+                <td>8:00 AM, 2:00 PM, 9:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Dehradun" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Kashmir</td>
+                <td>5:00 AM, 9:00 AM</td>
+                <td><a href="busbook.html?route=Delhi_to_Kashmir" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Jaipur</td>
+                <td>7:00 AM, 12:00 PM, 4:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Jaipur" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Goa</td>
+                <td>4:00 PM, 9:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Goa" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Manali</td>
+                <td>8:00 AM, 2:00 PM, 10:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Manali" class="book-btn">Book Now</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Trains Section -->
+<div class="section">
+    <h2>Trains</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Service Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Delhi to Shimla</td>
+                <td>6:00 AM, 10:00 AM, 4:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Shimla" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Amritsar</td>
+                <td>5:30 AM, 12:00 PM, 7:30 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Amritsar" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Dehradun</td>
+                <td>7:00 AM, 1:00 PM, 9:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Dehradun" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Kashmir</td>
+                <td>6:00 AM, 3:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Kashmir" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Jaipur</td>
+                <td>9:00 AM, 2:00 PM, 6:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Jaipur" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Goa</td>
+                <td>6:00 PM, 11:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Goa" class="book-btn">Book Now</a></td>
+            </tr>
+            <tr>
+                <td>Delhi to Manali</td>
+                <td>5:00 AM, 1:00 PM, 8:00 PM</td>
+                <td><a href="busbook.html?route=Delhi_to_Manali" class="book-btn">Book Now</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <!-- Footer -->
+
+<footer class="footer">
+    <div class="foot">
+        <div class="footlinks">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./book.html">Book Now!</a></li>
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#locations">Locations</a></li>
+                <li><a href="./index.html#package">Packages</a></li>
+                <li><a href="./about.html#about us">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="./contact.html">Contact Form</a></li>
+                <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                <li><a href="mob:+919646348062">+91 9646348062</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+    </div>
+</footer>
+
+
+</body>
+</html>

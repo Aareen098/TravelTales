@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        /* General Styles */
+        body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    width: 120px;
+    height: 70px;
+    margin-top: -10px;
+    margin-left: -90px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+        /* Section: Location */
+.location-section {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.location-heading {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+.location-heading h1 {
+    font-size: 2rem;
+    color: #102C57;
+}
+
+.location-heading h1 span {
+    color: #ff7f50;
+}
+
+.location-detail {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Reduce the maximum width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.location-detail h1 {
+    font-size: 1.8rem;
+    color: #102C57;
+    margin-bottom: 10px;
+}
+
+.location-detail .stars a {
+    color: #ffdf00;
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+.location-detail p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.location-img {
+    text-align: left;
+    max-width: 70%; /* Reduced the overall width of the image container */
+}
+
+.location-img img {
+    width: 50%;  /* Image will take up 100% of the reduced container width */
+    height: auto;
+    max-width: 500px; /* Set a maximum width for the image */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+        /* Footer */
+        .footer {
+            background-color: #102C57;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .foot {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer .footlinks h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer .footlinks ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footlinks ul li a {
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footlinks ul li a:hover {
+            color: #ff6f61;
+        }
+
+        .footer .social a {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social a:hover {
+            color: #ff6f61;
+        }
+
+        .end {
+            margin-top: 30px;
+        }
+
+        .end p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .end p b {
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="location-body">
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+
+        <ul class="navbar">
+            <li>
+                <a href="./index.html">Home</a>
+                <a href="./index.html#services">Services</a>
+                <a href="./index.html#locations">Locations</a>
+                <a href="./index.html#package">Packages</a>
+                <a href="./about.html#aboutus">About Us</a>
+                <a href="./contact.html#contactus">Contact Us</a>
+            </li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Unicode character for the hamburger icon -->
+        </div>
+    </nav>
+
+    <section class="location-section">
+        <div class="location-heading">
+            <h1>Discover The <span>Beautiful World</span></h1>
+        </div>
+
+        <div class="location-detail" id="kashmir">
+            <h1>Jammu & Kashmir</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+            <p>Heaven on Earth Kashmir is one of the most beautiful travel destinations to visit in North India. Nowhere in India you will behold the scenic landscapes, icy glaciers, pristine lakes and lofty mountains as beautiful as Kashmir. Serenity and Tranquility redefines itself from the ambiance of Kashmir. Be it summer, Winter or Monsoon, every season has its own charm in Kashmir. The numerous wonders of nature, culture, cuisines and rich history of Kashmir will elevate your travel experience in Incredible India.</p>
+            <div class="location-img">
+                <img src="./files/kashmir.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="location-detail" id="himachal-pradesh">
+            <h1>Himachal Pradesh</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Kullu Manali is a picturesque region in the Indian state of Himachal Pradesh, known for its stunning natural beauty. Nestled in the Himalayan mountains, it offers lush green valleys, snow-capped peaks, and serene rivers. Manali is a popular destination for adventure sports like paragliding, skiing, and trekking. The region is also rich in cultural heritage, with temples, traditional villages, and vibrant festivals. Kullu Manali's pleasant climate and breathtaking landscapes make it a sought-after destination for nature lovers and tourists alike.</p>
+            <div class="location-img">
+                <img src="./files/manali.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="location-detail" id="leh">
+            <h1>Leh-Ladakh</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Leh Ladakh, located in the northernmost region of India, is renowned for its stark and breathtaking landscapes, characterized by rugged mountains, vast deserts, and crystal-clear lakes. The region is a haven for adventure enthusiasts, offering activities like trekking, mountain biking, and river rafting. Ladakh is also home to ancient Buddhist monasteries, colorful festivals, and a unique blend of Tibetan and Indian culture. The high-altitude desert climate adds to its allure, with dramatic variations in temperature and scenery. Leh, the largest town in the region, serves as a gateway to this remote and mesmerizing part of the Himalayas.</p>
+            <div class="location-img">
+                <img src="./files/leh ladakh.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="location-detail" id="uttrakhand">
+            <h1>Uttarakhand</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Uttarakhand, often referred to as the "Land of the Gods," is a northern Indian state nestled in the Himalayas. Known for its stunning natural beauty, the region boasts snow-capped peaks, lush valleys, serene rivers, and dense forests. Popular destinations include the pilgrimage sites of Haridwar and Rishikesh, the hill stations of Nainital and Mussoorie, and the trekking trails in the Garhwal and Kumaon regions. Uttarakhand is a paradise for nature lovers, adventure enthusiasts, and spiritual seekers alike, offering a perfect blend of scenic landscapes and cultural heritage.</p>
+            <div class="location-img">
+                <img src="./files/nanital.jpeg.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="location-detail" id="Amritsar">
+            <h1>Amritsar</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Amritsar, located in the Indian state of Punjab, is known for its rich history and vibrant culture. The Golden Temple, or Harmandir Sahib, is the holiest Gurdwara of Sikhism, attracting millions of visitors annually. Its stunning architecture, adorned with gold leaf, reflects spiritual significance and beauty. The temple is surrounded by a serene pond, symbolizing purity and tranquility. Amritsar is also famous for its delicious Punjabi cuisine and historical sites, making it a cultural hub.</p>
+            <div class="location-img">
+                <img src="./files/golden temple.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="location-detail" id="goa">
+            <h1>Goa</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Goa, located on the western coast of India, is renowned for its stunning beaches and vibrant nightlife. It has a unique blend of Indian and Portuguese cultures, evident in its architecture and cuisine. The state is famous for its water sports, beach parties, and laid-back atmosphere. Goa also hosts numerous festivals, showcasing its rich traditions and lively spirit. With lush greenery and picturesque landscapes, it’s a popular destination for both relaxation and adventure.</p>
+            <div class="location-img">
+                <img src="./files/goa2.jpg" alt="">
+            </div>
+        </div>
+        <div class="location-detail" id="andaman">
+            <h1>Andaman & Nicobar Islands</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>The Andaman & Nicobar Islands, located in the Bay of Bengal, are a group of picturesque islands known for their pristine beaches, crystal-clear waters, and vibrant marine life. The islands offer a perfect getaway for those seeking tranquility and natural beauty. The coral reefs surrounding the islands are ideal for snorkeling and scuba diving, while the lush forests are home to diverse flora and fauna. The islands also have a rich history, with remnants of British colonial rule, including the infamous Cellular Jail. The Andaman & Nicobar Islands are a paradise for nature lovers and adventure enthusiasts alike.</p>
+            <div class="location-img">
+                <img src="./files/lakshdweep.jpg" alt="">
+            </div>
+        </div>
+        <div class="location-detail" id="Rajasthan">
+            <h1>Rajasthan</h1>
+            <div class="stars">
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star'></i></a>
+                <a href="#"><i class='bx bxs-star-half'></i></a>
+            </div>
+            <p>Rajasthan, the largest state in India, is known for its majestic forts, palaces, and vibrant culture. Jaipur, the capital city, is often called the "Pink City" due to its unique terracotta-colored buildings. It boasts stunning attractions like the Hawa Mahal, City Palace, and Amber Fort, reflecting its royal heritage. The city is also famous for its bustling markets, where visitors can find traditional handicrafts and textiles. Rajasthan's rich history and colorful festivals make it a captivating destination for travelers.</p>
+            <div class="location-img">
+                <img src="./files/jaipur.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./book.html">Book Now!</a></li>
+                    <li><a href="./index.html#services">Services</a></li>
+                    <li><a href="./index.html#locations">Locations</a></li>
+                    <li><a href="./index.html#package">Packages</a></li>
+                    <li><a href="./about.html">About us</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="./contact.html">Contact Form</a></li>
+                    <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                    <li><a href="mob:+919646348062">+91 9646348062</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Follow Us</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="end">
+            <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+        </div>
+    </footer>
+</body>
+</html>

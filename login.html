@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js" integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav {
+            width: 100%;
+            background: #333(0,0,0,0.6);
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            width: 150px;
+            margin-left: 6px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 15px;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+        .contact {
+            padding: 50px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            margin: 30px auto;
+        }
+        .contact h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        .contact p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #102C57;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: calc(100% - 30px); /* Adjusting for padding */
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        .contact-form input[type="submit"] {
+            background: #102C57;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact-form input[type="submit"]:hover {
+            background: #ff7f50;
+            
+        }
+        .footer {
+            background: #102C57;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                margin: 0;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="contactbody">
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        <ul class="navbar">
+            <li>
+                <a href="./index.html">Home</a>
+                <a href="./index.html#services">Services</a>
+                <a href="./index.html#locations">Locations</a>
+                <a href="./index.html#package">Packages</a>
+                <a href="./about.html#aboutus">About Us</a>
+                <a href="./contact.html#contactus">Contact Us</a>
+            </li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Unicode character for the hamburger icon -->
+        </div>
+    </nav>
+
+    <section class="contact">
+        <div class="contact-form">
+            <h1>Login <span>Here</span></h1>
+            <form action="login.php" method="POST">
+                <input type="text" name="myname" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your E-mail" required>
+                <input type="text" name="password" placeholder="Password" required>
+                <input type="text" name="confirm" placeholder="Confirm Password" required>
+                <input type="submit" value="Submit" name="submit" class="submit-btn">
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./book.html">Book Now!</a></li>
+                    <li><a href="./index.html#services">Services</a></li>
+                    <li><a href="./index.html#locations">Locations</a></li>
+                    <li><a href="./index.html#package">Packages</a></li>
+                    <li><a href="./about.html#aboutus">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="./contact.html">Contact Form</a></li>
+                    <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                    <li><a href="mob:+919646348062">+91 9646348062</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Follow Us</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="end">
+            <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+        </div>
+    </footer>
+</body>
+</html>

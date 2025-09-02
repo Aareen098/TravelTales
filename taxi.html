@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tales</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: #333(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 50px;
+    padding-left: 6px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+/* Navigation Styles */
+nav {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 100px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #102C57;
+        }
+        .card p {
+            font-size: 16px;
+            color: #555;
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 15px;
+            background-color: #102C57;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #ff7f50;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            margin: 0;
+        }
+        .modal-close {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-body input, .modal-body select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px -10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .modal-footer {
+            text-align: center;
+        }
+        .modal-footer .btn {
+            background-color: #102C57;
+        }
+        /* Footer */
+.footer {
+    background-color: #102C57;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer .foot {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer .footlinks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer .footlinks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footlinks ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footlinks ul li a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer .footlinks ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social a {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+    color: #ff7f50;
+}
+
+.end {
+    margin-top: 30px;
+}
+
+.end p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.end p b {
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./index.html#locations">Locations</a></li>
+            <li><a href="./index.html#package">Packages</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+          &#9776; <!-- Unicode character for the hamburger icon -->
+      </div>
+    </nav>
+
+    <h1>Taxis Available from Different Cities</h1>
+
+    <div class="container">
+        <div class="card">
+            <img src="./files/golden temple.jpg" alt="Amritsar Taxi">
+            <h2>Amritsar</h2>
+            <p>Taxis available from bus stands, railway stations, and airports to Golden Temple, Wagah Border, and more!</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/goa2.jpg" alt="Goa Taxi">
+            <h2>Goa</h2>
+            <p>Explore beaches and nightlife with taxis available from bus stands, railway stations, and airports in Goa!</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/jaipur.jpg" alt="Jaipur Taxi">
+            <h2>Jaipur</h2>
+            <p>All type of Taxis available from all major transport hubs to forts, palaces, and bazaars in<br> Jaipur.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/kashmir.jpg" alt="Kashmir Taxi">
+            <h2>Kashmir</h2>
+            <p>Start your journey from bus stands, railway stations, and airports in Kashmir's scenic valleys.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/manali.jpg" alt="Manali Taxi">
+            <h2>Manali</h2>
+            <p>Taxis available from bus stands and nearby transport hubs for exploring the scenic beauty of Manali.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/shimla.jpg" alt="Shimla Taxi">
+            <h2>Shimla</h2>
+            <p>Taxis from bus stands, railway stations, and airports for hill station, Mall road tours in<br> Shimla.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/mussoorie2.jpg" alt="Mussoorie Taxi">
+            <h2>Mussoorie</h2>
+            <p>Our taxis serve from all major transport points to help you explore the Queen of Hills, Mussoorie.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <img src="./files/lakshdweep.jpg" alt="Lakshadweep Taxi">
+            <h2>Lakshadweep</h2>
+            <p>Discover the islands with our taxis available from all local transport hubs for your<br> journey.</p>
+            <button class="btn" onclick="openModal()">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Modal for Booking -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book a Taxi</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form action="./taxi.php" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <label for="pickup">Pickup Location</label>
+                    <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required>
+
+                    <label for="drop">Drop Location</label>
+                    <input type="text" id="drop" name="drop" placeholder="Enter drop location" required>
+
+                    <label for="taxi-type">Taxi Type</label>
+                    <select id="taxi-type" name="type" required>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="minivan">Minivan</option>
+                    </select>
+                    <input type="submit" name="submit" value="Book Now" class="submitbtn">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+<footer class="footer">
+    <div class="foot">
+        <div class="footlinks">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./book.html">Book Now!</a></li>
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#locations">Locations</a></li>
+                <li><a href="./index.html#package">Packages</a></li>
+                <li><a href="./about.html#about us">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="./contact.html">Contact Form</a></li>
+                <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                <li><a href="mob:+919646348062">+91 9646348062</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+    </div>
+</footer>
+<script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("bookingModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("bookingModal").style.display = "none";
+        }
+
+        // Function to handle booking submission
+        function submitBooking() {
+            const name = document.getElementById("name").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const pickup = document.getElementById("pickup").value;
+            const drop = document.getElementById("drop").value;
+            const taxiType = document.getElementById("taxi-type").value;
+            const price = document.getElementById("price").value;
+
+            if (name && date && time && pickup && drop && taxiType && price) {
+                alert(`Booking confirmed for ${name} on ${date} at ${time} from ${pickup} to ${drop} with a ${taxiType}. Price: ₹${price}`);
+                closeModal(); // Close modal after submission
+            } else {
+                alert("Please fill all fields before submitting.");
+            }
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("bookingModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Responsive Navbar
+        document.getElementById("menu-icon").addEventListener("click", function() {
+            document.querySelector(".navbar").classList.toggle("active");
+        });
+</script>
+</body>

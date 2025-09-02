@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tales</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+        line-height: 1.6;
+    }
+
+    /* Navigation Styles */
+    nav {
+        width: 100%;
+        padding: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .logo {
+        height: 100px;
+    }
+
+    .navbar {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: background 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background: #ff7f50;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 24px;        
+        cursor: pointer;
+    }
+
+    header {
+        color: #102C57;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: -180px;
+        padding: 1rem;
+    }
+
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .section {
+        background-color: white;
+        border-radius: 8px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .bike-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .bike-list img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .bike-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 30%;
+        margin: 10px 0;
+        padding: 15px;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+
+    .bike-item:hover {
+        transform: scale(1.05);
+    }
+
+    .bike-name {
+        font-size: 1.2rem;
+        color: #333;
+        margin-top: 10px;
+    }
+
+    .bike-price {
+        color: #102C57;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .book-now {
+        background-color: #102C57;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .book-now:hover {
+        background-color: #ff7f50;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .modal-close {
+        background-color: #f44336;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .modal form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .modal input, .modal select {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .modal button {
+        padding: 10px;
+        background-color: #102C57;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .modal button:hover {
+        background-color: #ff7f50;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+        .navbar {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            padding: 10px 0;
+            gap: 10px;
+        }
+
+        .navbar.active {
+            display: flex;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+    }
+    /* Footer */
+.footer {
+    background-color: #102C57;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer .foot {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer .footlinks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer .footlinks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footlinks ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footlinks ul li a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer .footlinks ul li a:hover {
+    color: #ff7f50;
+}
+
+.footer .social a {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer .social a:hover {
+    color: #ff7f50;
+}
+
+.end {
+    margin-top: 30px;
+}
+
+.end p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.end p b {
+    color: #fff;
+}
+</style>
+<body>
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./index.html#locations">Locations</a></li>
+            <li><a href="./index.html#package">Packages</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+          &#9776;
+      </div>
+    </nav>
+
+    <header>
+        <h1>Bikes for Rent</h1>
+    </header>
+    
+    <div class="container">
+        <!-- Mountain Bikes Section -->
+        <section class="section">
+            <h2>Mountain Bikes</h2>
+            <div class="bike-list">
+                <div class="bike-item">
+                    <img src="./files/xpulse.jpg" alt="Mountain Bike 1">
+                    <p class="bike-name">Hero Xpulse 200</p>
+                    <p class="bike-price">1200.Rs/day</p>
+                    <button class="book-now" data-bike="Hero Xpulse 200">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/himalyan.jpg" alt="Mountain Bike 2">
+                    <p class="bike-name">Royal Enfield Himalyan</p>
+                    <p class="bike-price">1500.Rs/day</p>
+                    <button class="book-now" data-bike="Royal Enfield Himalyan">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/gt650.jpg" alt="Mountain Bike 3">
+                    <p class="bike-name">Royal Enfield Continental GT 650</p>
+                    <p class="bike-price">2000.Rs/day</p>
+                    <button class="book-now" data-bike="Royal Enfield Continental GT 650">Book Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Road Bikes Section -->
+        <section class="section">
+            <h2>Road Bikes</h2>
+            <div class="bike-list">
+                <div class="bike-item">
+                    <img src="./files/bullet.jpg" alt="Road Bike 1">
+                    <p class="bike-name">Royal Enfield Classic 350</p>
+                    <p class="bike-price">1500.Rs/day</p>
+                    <button class="book-now" data-bike="Royal Enfield Classic 350">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/duke.jpg" alt="Road Bike 2">
+                    <p class="bike-name">KTM DUKE 390</p>
+                    <p class="bike-price">1200.Rs/day</p>
+                    <button class="book-now" data-bike="KTM DUKE 390">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/r15.jpg" alt="Road Bike 3">
+                    <p class="bike-name">Yamaha R15 V4</p>
+                    <p class="bike-price">1200.Rs/day</p>
+                    <button class="book-now" data-bike="Yamaha R15 V4">Book Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Electric Bikes Section -->
+        <section class="section">
+            <h2>Electric Bikes</h2>
+            <div class="bike-list">
+                <div class="bike-item">
+                    <img src="./files/ather scooty.jpg" alt="Electric Bike 1">
+                    <p class="bike-name">Ather 450X</p>
+                    <p class="bike-price">1000.Rs/day</p>
+                    <button class="book-now" data-bike="Ather 450X">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/ola s1.webp" alt="Electric Bike 2">
+                    <p class="bike-name">OLA S1</p>
+                    <p class="bike-price">1000.Rs/day</p>
+                    <button class="book-now" data-bike="Electric Bike 2">Book Now</button>
+                </div>
+                <div class="bike-item">
+                    <img src="./files/uv f77.png" alt="Electric Bike 3">
+                    <p class="bike-name">ULTRAVIOLET F77</p>
+                    <p class="bike-price">2000.Rs/day</p>
+                    <button class="book-now" data-bike="Electric Bike 3">Book Now</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Booking Modal with Form -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <h3>Book Now</h3>
+            <p id="modal-bike-name">Bike Name</p>
+
+            <form action="./rental.php" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="date" id="start-date" name="date" required>
+                <input type="number" id="days" name="days" placeholder="Number of Days" required>
+                <select id="payment-method" name="payment" required>
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="credit-card">Credit Card/Debit card</option>
+                    <option value="paypal">UPI</option>
+                    <option value="upi">GPAY/PAYTM/PHONEPAY</option>
+                    <option value="paypal">IMPS</option>
+                </select>
+                <input type="submit" name="submit" value="Book Now" class="submitbtn">
+            </form>
+
+            <button class="modal-close">Close</button>
+        </div>
+    </div>
+    <!-- Footer -->
+
+<footer class="footer">
+    <div class="foot">
+        <div class="footlinks">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./book.html">Book Now!</a></li>
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#locations">Locations</a></li>
+                <li><a href="./index.html#package">Packages</a></li>
+                <li><a href="./about.html#about us">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="./contact.html">Contact Form</a></li>
+                <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                <li><a href="mob:+919646348062">+91 9646348062</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+    </div>
+</footer>
+
+    <!-- JavaScript for Modal and Form -->
+    <script>
+        // Modal and buttons
+        const bookNowButtons = document.querySelectorAll('.book-now');
+        const modal = document.getElementById('bookingModal');
+        const modalBikeName = document.getElementById('modal-bike-name');
+        const modalCloseButton = document.querySelector('.modal-close');
+        const bookingForm = document.getElementById('bookingForm');
+
+        // Add event listeners to all "Book Now" buttons
+        bookNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const bikeName = this.getAttribute('data-bike');
+                modalBikeName.textContent = bikeName;
+                modal.style.display = 'flex'; // Show modal
+            });
+        });
+
+        // Close modal
+        modalCloseButton.addEventListener('click', function() {
+            modal.style.display = 'none'; // Hide modal
+        });
+
+        // Close modal if clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Booking submitted successfully!');
+            modal.style.display = 'none'; // Hide modal after submission
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Here</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    height: 100px;
+    padding-left: 6px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff7f50;
+}
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+        /* Registration Section */
+        .registration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .register-form {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .register-form h1 {
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .register-form h1 span {
+            color: #ff7f50;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="email"],
+        .register-form input[type="tel"],
+        .register-form input[type="number"],
+        .register-form input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f4f4f4;
+        }
+
+        .register-form input[type="radio"],
+        .register-form input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .register-form h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .register-form label {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .register-form .submitbtn {
+            width: 100%;
+            padding: 12px;
+            background-color: #102C57;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-form .submitbtn:hover {
+            background-color: #ff7f50;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #102C57;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .foot {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer .footlinks h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer .footlinks ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footlinks ul li a {
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footlinks ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .footer .social a {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social a:hover {
+            color: #ff7f50;
+        }
+
+        .end {
+            margin-top: 30px;
+        }
+
+        .end p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .end p b {
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="register-body">
+
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        <ul class="navbar">
+            <li>
+                <a href="./index.html">Home</a>
+                <a href="./index.html#services">Services</a>
+                <a href="./index.html#locations">Locations</a>
+                <a href="./index.html#package">Packages</a>
+                <a href="./about.html#aboutus">About Us</a>
+                <a href="./contact.html#contactus">Contact Us</a>
+            </li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Unicode character for the hamburger icon -->
+        </div>
+    </nav>
+
+    <section class="registration">
+        <div class="register-form">
+            <h1>Book <span>Here</span></h1>
+            <form action="book.php" method="POST">
+                <input type="text" name="myname1" placeholder="Name" id="name" required>
+                <input type="email" name="myemail" placeholder="Email" required>
+                <input type="tel" name="myphone" placeholder="Phone No." id="phonenum" required>
+                <input type="number" name="myage" placeholder="Age" required>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" required>
+                </div>
+                
+                <h4>Departure</h4>
+                <input type="datetime-local" name="departuredate" required>
+                
+                <h4>Return</h4>
+                <input type="datetime-local" name="returndate" required>
+                
+                <h4>Travel Destination</h4>
+                <label><input type="checkbox" name="td" value="jammu"> Jammu & Kashmir</label>
+                <label><input type="checkbox" name="td" value="himachal"> Himachal Pradesh</label>
+                <label><input type="checkbox" name="td" value="ladakh"> Leh Ladakh</label>
+                <label><input type="checkbox" name="td" value="uttarakhand"> Uttarakhand</label>
+                <label><input type="checkbox" name="td" value="amritsar"> Amritsar</label>
+                <label><input type="checkbox" name="td" value="goa"> Goa</label>
+                <label><input type="checkbox" name="td" value="andaman"> Andaman & Nicobar</label>
+                <label><input type="checkbox" name="td" value="rajasthan"> Rajasthan</label>
+                
+                <h4>Package</h4>
+
+                <label><input type="radio" name="package" value="silver"> Silver</label>
+                <label><input type="radio" name="package" value="gold"> Gold</label>
+                <label><input type="radio" name="package" value="platinum"> Platinum</label>
+                
+                <input type="checkbox" name="t&c" checked required> I accept the Terms & Conditions.
+                <br><br>
+                <input type="submit" name="submit" value="Book Now" class="submitbtn">
+
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="foot">
+            <div class="footlinks">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#services">Services</a></li>
+                    <li><a href="./index.html#locations">Locations</a></li>
+                    <li><a href="./index.html#package">Packages</a></li>
+                    <li><a href="./about.html#aboutus">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="./contact.html">Contact Form</a></li>
+                    <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                    <li><a href="mob:+919646348062">+91 9646348062</a></li>
+                </ul>
+            </div>
+            <div class="footlinks">
+                <h4>Follow Us</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="end">
+            <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+        </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script>
+        function validateform() { 
+            var tel = document.getElementById("phonenum").value;  
+            if (tel.length < 10) {  
+                alert("Phone number must be at least 10 digits!");  
+                return false;  
+            } else if (isNaN(tel)) {
+                alert("Phone number should not include characters!");
+                return false;
+            }
+            return true;
+        }  
+    </script>
+</body>
+</html>

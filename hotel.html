@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tales_Hotel Services</title>
+    <link rel="icon" href="./files/loggo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        /* Navigation Styles */
+        nav {
+            width: 100%;
+            padding: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .logo {
+            height: 100px;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #ff7f50;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            color: #102C57;
+            margin-top: 120px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #102C57;
+            margin-bottom: 20px;
+            font-weight: bolder;
+        }
+
+        .slider-container {
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            cursor: grab;
+            padding: 0;
+        }
+
+        .hotel-cards {
+            display: flex;
+            white-space: nowrap;
+            transition: transform 0.3s ease;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        .hotel-card {
+            flex: 0 0 calc(25% - 20px);
+            box-sizing: border-box;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .hotel-card:hover {
+            transform: scale(1.05);
+        }
+
+        .hotel-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .hotel-card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #102C57;
+        }
+
+        .hotel-card .rating {
+            font-size: 16px;
+            color: #ff7f50;
+            margin: 5px 0;
+        }
+
+        .hotel-card .review-count {
+            font-size: 12px;
+            color: black;
+        }
+
+        .hotel-card p {
+            font-size: 20px;
+            color: #102C57;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .hotel-card .facilities,
+        .hotel-card .distance,
+        .hotel-card .tourist-places {
+            font-size: 12px;
+            color: #c7643f;
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        .hotel-card .price {
+            font-size: 18px;
+            color: #102C57;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .hotel-card .tax-info {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .book-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #102C57;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .book-now-btn:hover {
+            background-color: #ff7f50;
+        }
+      
+
+        /* Remove scrollbar for a cleaner look */
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .slider-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #102C57;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .foot {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer .footlinks h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer .footlinks ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer .footlinks ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer .footlinks ul li a {
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footlinks ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .footer .social a {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social a:hover {
+            color: #ff7f50;
+        }
+
+        .end {
+            margin-top: 30px;
+        }
+
+        .end p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .end p b {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .hotel-card {
+                flex: 0 0 calc(50% - 20px); /* Adjust card size for mobile */
+            }
+        }
+        @media (max-width: 480px) {
+            .hotel-card {
+                flex: 0 0 calc(100% - 20px); /* Full width for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="./files/loggo.png" class="logo" alt="Logo" title="TRAVEL TALES">
+        
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html">Services</a></li>
+            <li><a href="./index.htmls">Locations</a></li>
+            <li><a href="./index.html">Packages</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Unicode character for the hamburger icon -->
+        </div>
+    </nav>
+
+    <h1>HOTELS</h1>
+    <h2>Explore the Best Hotels in Amritsar</h2>
+
+    <div class="slider-container" id="sliderContainer">
+        <div class="hotel-cards">
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <img src="./files/parkinasr.avif" alt="Hotel 1">
+                <h3>Park Inn by Radisson</h3>
+                <div class="rating">★★★★★</div>
+                <span class="review-count">(650 reviews)</span>
+                <p>Near Amritsar Airport.</p>
+                <p class="facilities">Facilities: Free WiFi, Breakfast included, Parking available</p>
+                <p class="distance">Distance: 1 km Within International Airport</p>
+                <p class="tourist-places">Nearby: Golden Temple, Jallianwala Bagh, Attari Border</p>
+                <p class="price">Price: ₹10,400/day</p>
+                <p class="tax-info">+ ₹1,872 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Park Inn by Radisson" class="book-now-btn">Book Now</a>
+
+
+
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <img src="./files/ramadaasr.jpg" alt="Hotel 2">
+                <h3>Ramada by Wyndham </h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(980 reviews)</span>
+                <p>Hall Gate,Amritsar.</p>
+                <p class="facilities">Facilities: Swimming Pool, Gym, Room Service</p>
+                <p class="distance">Distance:  800m to Golden Temple</p>
+                <p class="tourist-places">Nearby: Partition Museum, Amritsar Heritage Walk</p>
+                <p class="price">Price: ₹4,860/day</p>
+                <p class="tax-info">+ ₹583 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Ramada by Wyndham" class="book-now-btn">Book Now</a>
+
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <img src="./files/hyaatasr.jpg" alt="Hotel 3">
+                <h3>Hyatt Regency</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(560 reviews)</span>
+                <p>Near Amritsar Railway Station.</p>
+                <p class="facilities">Facilities: Spa, Gym, Free Parking, Free WiFi</p>
+                <p class="distance">Distance: 4.5 km to Golden Temple</p>
+                <p class="tourist-places">Nearby: Nexus Amritsar Mall</p>
+                <p class="price">Price: ₹6,000/day</p>
+                <p class="tax-info">+ ₹782 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Hyatt Regency" class="book-now-btn">Book Now</a>
+
+            </div>
+
+            <!-- Hotel 4 -->
+            <div class="hotel-card">
+                <img src="./files/goldentulip.asr.jpeg" alt="Hotel 4">
+                <h3>Golden Tulip </h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(172 reviews)</span>
+                <p>Close to the Golden Temple.</p>
+                <p class="facilities">Facilities: Restaurant, Bar, WiFi</p>
+                <p class="distance">Distance: 1.5 km to Golden Temple</p>
+                <p class="tourist-places">Nearby: Durgiana Temple, Amritsar Shopping Center</p>
+                <p class="price">Price: ₹5,200/day</p>
+                <p class="tax-info">+ ₹583 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Golden Tulip" class="book-now-btn">Book Now</a>
+
+            </div>
+            <!-- Hotel 5 -->
+            <div class="hotel-card">
+                <img src="./files/hollywoodasr.jpg" alt="Hotel 3">
+                <h3>Hollywood Heights</h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(816 reviews)</span>
+                <p>Near Amritsar Railway Station.</p>
+                <p class="facilities">Facilities: Food, Free Parking, Free WiFi</p>
+                <p class="distance">Distance: 2 km to Golden Temple</p>
+                <p class="tourist-places">Nearby: Railway Station, Maharaja Ranjit Singh Museum</p>
+                <p class="price">Price: ₹1,900/day</p>
+                <p class="tax-info">+ ₹194 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Hollywood Heights" class="book-now-btn">Book Now</a>
+
+            </div>
+
+            <!-- Hotel 6 -->
+            <div class="hotel-card">
+                <img src="./files/holidayinnasr.jpg" alt="Hotel 4">
+                <h3>Holiday Inn</h3>
+                <div class="rating">★★★★★</div>
+                <span class="review-count">(340 reviews)</span>
+                <p> Ranjit Avenue.</p>
+                <p class="facilities">Facilities: Restaurant, Bar, WiFi</p>
+                <p class="distance">Distance: 6 km to Golden Temple</p>
+                <p class="tourist-places">Nearby: District Shopping Complex,Ranjit Avenue</p>
+                <p class="price">Price: ₹4,570/day</p>
+                <p class="tax-info">+ ₹491 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Holiday Inn" class="book-now-btn">Book Now</a>
+            </div>
+            
+            <!-- Hotel 7 -->
+            <div class="hotel-card">
+                <img src="./files/exoticasr.jpg" alt="Hotel 3">
+                <h3>Hotel Exotic</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(270 reviews)</span>
+                <p>5 min walk from Golden Temple</p>
+                <p class="facilities">Facilities: Restaurant, Free Parking, Free WiFi</p>
+                <p class="distance">Distance: 200m to Golden Temple</p>
+                <p class="tourist-places">Nearby: Golden Temple, Heritage Market</p>
+                <p class="price">Price: ₹3,045/day</p>
+                <p class="tax-info">+ ₹365 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Hotel Exotic" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 8 -->
+            <div class="hotel-card">
+                <img src="./files/springasr.jpg" alt="Hotel 4">
+                <h3>HOTEL THE SPRING SKY</h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(150 reviews)</span>
+                <p>Near Golden Temple Road.</p>
+                <p class="facilities">Facilities: Restaurant, Swimming Pool, Parking, WiFi</p>
+                <p class="distance">Distance: 1.9 km to Golden Temple</p>
+                <p class="tourist-places">Nearby: Golden temple,Durgiana Temple</p>
+                <p class="price">Price: ₹1,800/day</p>
+                <p class="tax-info">+ ₹216 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=HOTEL THE SPRING SKY" class="book-now-btn">Book Now</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <h2>Explore the Best Hotels in Kashmir</h2>
+
+    <div class="slider-container" id="sliderContainer">
+        <div class="hotel-cards">
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <img src="./files/lakeviewkashmir.jpg" alt="Hotel 1">
+                <h3>Hotel Lake View</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(650 reviews)</span>
+                <p>About a minute walk to Dal lake.</p>
+                <p class="facilities">Facilities: Free WiFi, Breakfast included, Parking available</p>
+                <p class="distance">Distance: Walking distance to Dal Lake</p>
+                <p class="tourist-places">Nearby: Dal lake.</p>
+                <p class="price">Price: ₹2,009/day</p>
+                <p class="tax-info">+ ₹473 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Hotel Lake View" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <img src="./files/houseboatkashmir.jpg" alt="Hotel 2">
+                <h3>The Heritage Group of Houseboats </h3>
+                <div class="rating">★★★★★</div>
+                <span class="review-count">(980 reviews)</span>
+                <p>Room in a Houseboat.</p>
+                <p class="facilities">Facilities: Outdoor pool, kitchen & parking</p>
+                <p class="distance">Distance:  70 metres from Nehru Park</p>
+                <p class="tourist-places">Nearby: Nehru Park, Dal lake</p>
+                <p class="price">Price: ₹3,962/day</p>
+                <p class="tax-info">+ ₹1,126 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Heritage Group of Houseboats" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <img src="./files/diwankashmir.avif" alt="Hotel 3">
+                <h3>The Dewan by Royal NaQash</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(560 reviews)</span>
+                <p>Near Shalimar Garden.</p>
+                <p class="facilities">Facilities: Bonfire, Gym, Free Parking, Free WiFi</p>
+                <p class="distance">Distance: 18 km from Sheikh-ul-aalam international Airport</p>
+                <p class="tourist-places">Nearby: Tulip garden,Harwan garden, Foreshore road</p>
+                <p class="price">Price: ₹3,528/day</p>
+                <p class="tax-info">+ ₹1,190 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Dewan by Royal NaQash" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 4 -->
+            <div class="hotel-card">
+                <img src="./files/ivorykashmir.avif" alt="Hotel 4">
+                <h3>The Ivory </h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(172 reviews)</span>
+                <p>Near Dal Lake.</p>
+                <p class="facilities">Facilities: Restaurant, Bonfire, Lounge</p>
+                <p class="distance">Distance: 15 minutes drive to famous Dal Lake.</p>
+                <p class="tourist-places">Nearby: Green Park Harwan Garden, Paragliding point.</p>
+                <p class="price">Price: ₹2,200/day</p>
+                <p class="tax-info">+ ₹778 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Ivory" class="book-now-btn">Book Now</a>
+            </div>
+            <!-- Hotel 5 -->
+            <div class="hotel-card">
+                <img src="./files/centralparkkashmir.avif" alt="Hotel 3">
+                <h3>Hotel Central Park</h3>
+                <div class="rating">★★★★★</div>
+                <span class="review-count">(513 reviews)</span>
+                <p>Srinagar.</p>
+                <p class="facilities">Facilities: Lounge, Free Parking, Restaurant</p>
+                <p class="distance">Distance: 1.4km to Dal lake</p>
+                <p class="tourist-places">Nearby: Clock Tower Lal Chowk,Mughal Gardens.</p>
+                <p class="price">Price: ₹5,044/day</p>
+                <p class="tax-info">+ ₹1,910 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Hotel Central Park" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 6 -->
+            <div class="hotel-card">
+                <img src="./files/gingerkashmir.jpg" alt="Hotel 4">
+                <h3>Ginger Srinagar Barzulla</h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(232 reviews)</span>
+                <p> Near Srinagar Airport.</p>
+                <p class="facilities">Facilities: Restaurant, Fitness center, WiFi</p>
+                <p class="distance">Distance: Dal Lake (16.8 km)</p>
+                <p class="tourist-places">Nearby: Nigeen Lake (12.2 km),Pari Mahal (15.6 km)</p>
+                <p class="price">Price: ₹4,799/day</p>
+                <p class="tax-info">+ ₹576 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Ginger Srinagar Barzulla" class="book-now-btn">Book Now</a>
+            </div>
+        </div>
+    </div>  
+    
+    <h2>Explore the Best Hotels in Goa</h2>
+
+    <div class="slider-container" id="sliderContainer">
+        <div class="hotel-cards">
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <img src="./files/jwmarriotgoa.jpg" alt="Hotel 1">
+                <h3>JW Marriott Goa</h3>
+                <div class="rating">★★★★★</div>
+                <span class="review-count">(230 reviews)</span>
+                <p>Vagator Beach road,Bardez.</p>
+                <p class="facilities">Facilities: Swimming Pool,4 restaurants,Fitness centre</p>
+                <p class="distance">Distance: 2km krom Vagator beach </p>
+                <p class="tourist-places">Nearby:  Vagator Beach,Ozran Beach and Chapora Fort</p>
+                <p class="price">Price: ₹17,000/day</p>
+                <p class="tax-info">+ ₹3,872 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=JW Marriott Goa" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <img src="./files/antrimgoa.avif" alt="Hotel 2">
+                <h3>Antarim Resort </h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(570 reviews)</span>
+                <p>Sitauted at top of Saipem Hill.</p>
+                <p class="facilities">Facilities: Swimming Pool, Gym, Bar, Lounge</p>
+                <p class="distance">Distance: 2.8Km from Our Lady of Hope Church </p>
+                <p class="tourist-places">Nearby: Candolim Beach, LPK Waterfront</p>
+                <p class="price">Price: ₹5,018/day</p>
+                <p class="tax-info">+ ₹1,147 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Antarim Resort" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <img src="./files/caravelagoa.avif" alt="Hotel 3">
+                <h3>Caravela Beach Resort</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(421 reviews)</span>
+                <p>Luxury Beachfront Property.</p>
+                <p class="facilities">Facilities: Spa, Gym, Jaccuzi, Restaurants</p>
+                <p class="distance">Distance: 200m from Varca Beach</p>
+                <p class="tourist-places">Nearby: Fatrade Beach,Colva Beach</p>
+                <p class="price">Price: ₹13,999/day</p>
+                <p class="tax-info">+ ₹2,520 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Caravela Beach Resort" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 4 -->
+            <div class="hotel-card">
+                <img src="./files/lalitgoa.avif" alt="Hotel 4">
+                <h3>The Lalit Golf & Spa Resort </h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(342 reviews)</span>
+                <p>Scenic Arabian Sea Views.</p>
+                <p class="facilities">Facilities: Restaurant, Bar, Jaccuzi</p>
+                <p class="distance">Distance: 500m from Raj Bagh</p>
+                <p class="tourist-places">Nearby: Palolem Beach,Sadolxem Bridge</p>
+                <p class="price">Price: ₹9,481/day</p>
+                <p class="tax-info">+ ₹2,955 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Lalit Golf & Spa Resort" class="book-now-btn">Book Now</a>
+            </div>
+            <!-- Hotel 5 -->
+            <div class="hotel-card">
+                <img src="./files/theparkgoa.avif" alt="Hotel 3">
+                <h3>The Park Calangute</h3>
+                <div class="rating">★★★☆☆</div>
+                <span class="review-count">(563 reviews)</span>
+                <p>Near Calangute Beach.</p>
+                <p class="facilities">Facilities: Food,Beach Club,Lounge,Bar </p>
+                <p class="distance">Distance:  2.9 km from Calangute Beach</p>
+                <p class="tourist-places">Nearby: Tibetan Market, Mae De Deus Church</p>
+                <p class="price">Price: ₹7,240/day</p>
+                <p class="tax-info">+ ₹2,114 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Park Calangute" class="book-now-btn">Book Now</a>
+            </div>
+
+            <!-- Hotel 6 -->
+            <div class="hotel-card">
+                <img src="./files/rosetumgoa.avif" alt="Hotel 4">
+                <h3>Rosetum Anjuna</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(251 reviews)</span>
+                <p>Near Anjuna Beach</p>
+                <p class="facilities">Facilities: Restaurant, Bar, Gym,Lounge</p>
+                <p class="distance">Distance: Just 2.1 km from Anjuna Beach</p>
+                <p class="tourist-places">Nearby: Nyex Beach Club,St. Michael'S Church</p>
+                <p class="price">Price: ₹2,303/day</p>
+                <p class="tax-info">+ ₹835 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=Rosetum Anjuna" class="book-now-btn">Book Now</a>
+            </div>
+            
+            <!-- Hotel 7 -->
+            <div class="hotel-card">
+                <img src="./files/bagaparkgoa.avif" alt="Hotel 3">
+                <h3>The Park Baga River Goa</h3>
+                <div class="rating">★★★★☆</div>
+                <span class="review-count">(270 reviews)</span>
+                <p>Located at River Goa Lane</p>
+                <p class="facilities">Facilities: Restaurant,Water Sports,Bar,Indoor games</p>
+                <p class="distance">Distance: Opposite to Mackies Saturday Market in Baga</p>
+                <p class="tourist-places">Nearby: Baga Beach,Blue Whale waterpark</p>
+                <p class="price">Price: ₹5,429/day</p>
+                <p class="tax-info">+ ₹2,014 Taxes and fees/Per Night</p>
+                <a href="hotelbook.html?hotel=The Park Baga River Goa" class="book-now-btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+    
+   
+    <!-- Footer -->
+<footer class="footer">
+    <div class="foot">
+        <div class="footlinks">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#locations">Locations</a></li>
+                <li><a href="./index.html#package">Packages</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><a href="./contact.html">Contact Form</a></li>
+                <li><a href="mailto:anikkr03@gmail.com">anikkr03@gmail.com</a></li>
+                <li><a href="mob:+919646348062">+91 9646348062</a></li>
+            </ul>
+        </div>
+        <div class="footlinks">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <a href="https://www.facebook.com/aareenanand"target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href=""target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/anik__kr"target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/aareen-anand-85aa49208"target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>&copy; 2024 Travel Tales. All Rights Reserved. <b>Designed by Aareen Anand & Aniket Kumar Bharti.</b></p>
+    </div>
+</footer>
+
+    <script>
+        const slider = document.getElementById('sliderContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed for touch
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+       
+     
+        // Responsive Navbar
+        document.getElementById("menu-icon").addEventListener("click", function() {
+            document.querySelector(".navbar").classList.toggle("active");
+        });
+    </script>
+
+</body>
+</html>
